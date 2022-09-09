@@ -11,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <div className='app'>
       <Routes>
         <Route path="/" element={<IsTriangle />} />
         <Route path="/isTriangle" element={<IsTriangle />} />
@@ -18,6 +19,7 @@ function App() {
         <Route path="/hypotenuse" element={<Hypotenuse />} />
         <Route path="/area" element={<Area />} />
       </Routes>
+      </div>
       <Footer />
     </div>
   );

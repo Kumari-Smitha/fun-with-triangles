@@ -1,9 +1,11 @@
 .is-triangle{
+    margin: auto;
     display: flex;
     flex-direction: column;
-    margin: auto;
     text-align: center;
-    width: 40vw;
+    /* width: 40vw; */
+    
+    
 }
 
 .p-text{

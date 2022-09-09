@@ -16,6 +16,7 @@ export default function Quiz(){
         ques9 : "",
         ques10 : ""
     })
+    const [error, setError] = useState(null)
 
     const answers = ["90",
     "right angled",
@@ -30,6 +31,9 @@ export default function Quiz(){
 
     const checkAnswers = (e)=>{
         e.preventDefault();
+        Object.values(questions).map(val =>{return (val ==='') ? setError("Please select all the answers.") : setError(null)})
+           
+        console.log(Object.values(questions))
         let userAnswers = [];
         Object.values(questions).forEach(val=>userAnswers.push(val))
         for(let i in answers){
@@ -44,18 +48,19 @@ export default function Quiz(){
     }
     return(
         <>
+        
         <div className="quiz">
         <h1>Quiz on triangles</h1>
         <h3>For each correct answer you will get 1 point</h3>
         <form>
             <div className="question">
-            <p>What is the third angle for the triangle where angle1 = 45° and angle2 = 45°?</p>
-            <input type="radio" name="ques1" value="45" onChange={(e)=>setQuestions({...questions, ques1:e.target.value})}/>
-            <label>45°</label>
-            <input type="radio" name="ques1" value="90" onChange={(e)=>setQuestions({...questions, ques1:e.target.value})}/>
-            <label>90°</label>
-            <input type="radio" name="ques1" value="60" onChange={(e)=>setQuestions({...questions, ques1:e.target.value})}/>
-            <label>60°</label>
+                <p>What is the third angle for the triangle where angle1 = 45° and angle2 = 45°?</p>
+                <input type="radio" name="ques1" value="45" onChange={(e)=>setQuestions({...questions, ques1:e.target.value})}/>
+                <label>45°</label>
+                <input type="radio" name="ques1" value="90" onChange={(e)=>setQuestions({...questions, ques1:e.target.value})}/>
+                <label>90°</label>
+                <input type="radio" name="ques1" value="60" onChange={(e)=>setQuestions({...questions, ques1:e.target.value})}/>
+                <label>60°</label>
             </div>
             <div className="question">
             <p>What is the third angle for the triangle where angle1 = 45° and angle2 = 45°?</p>
@@ -129,10 +134,14 @@ export default function Quiz(){
             <input type="radio" name="ques10" value="45" onChange={(e)=>setQuestions({...questions, ques10:e.target.value})}/>
             <label>45°</label>
             </div>
+            
             {/* <button onClick={(e)=>checkAnswers(e)}>Submit Answers</button> */}
             <Button text="Submit Answers"  handleChange={(e)=>checkAnswers(e)}/>
         </form>
-        {count && <p>Your total score is {count}</p>}
+        {error ? <p style={{color:"red"}}>{error}</p> : 
+        (count && <p style={{marginTop:"0.5rem",fontWeight:"bold",fontSize:"X-large", color:"#ff0055"}}>Your total score is {count}</p>)
+        }
+        
         </div>
         
         </>

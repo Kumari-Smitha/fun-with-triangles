@@ -7,8 +7,8 @@
     font-family: var(--title-font);
     font-size: large;
     border-radius: 0.5rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     cursor: pointer;
     margin: auto;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
 }

@@ -7,7 +7,7 @@ export default function Input(props){
         <>
         {/* <div className="input-label"> */}
         <label className="input-label">{label}</label>
-        <input className="input-input" onChange={handleChange} type="text"/>
+        <input className="input-input" onChange={handleChange} type="number"/>
         {/* </div> */}
         </>
     )

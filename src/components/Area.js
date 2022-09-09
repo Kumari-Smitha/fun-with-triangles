@@ -8,30 +8,38 @@ export default function Area(){
     const [side2, setSide2] = useState(0);
     const [side3, setSide3] = useState(0);
     const [text, setText] = useState("");
+    const [error, setError] = useState(null)
 
     const calculateArea = ()=>{
-        const firstSide = Number(side1);
-        const secondSide = Number(side2);
-        const thirdSide = Number(side3);
+        if( side1 !== 0 && side2 !== 0 && side3 !== 0){
 
-        if((firstSide+secondSide > thirdSide) && (secondSide+thirdSide > firstSide) && (firstSide+thirdSide > secondSide)){
-            const semiperimeter = (firstSide+secondSide+thirdSide)/2;
-            const result = Math.sqrt(
-                semiperimeter *
-                  (semiperimeter - firstSide) *
-                  (semiperimeter - secondSide) *
-                  (semiperimeter - thirdSide)
-              ).toFixed(4);
-              setText("Area of a triangle using heron's formula is "+ result+" units");
+            setError(null)
+            const firstSide = Number(side1);
+            const secondSide = Number(side2);
+            const thirdSide = Number(side3);
 
-        }else{
-            setText("Enter valid side lengths such that each side lengths")
-            
+            if((firstSide+secondSide > thirdSide) && (secondSide+thirdSide > firstSide) && (firstSide+thirdSide > secondSide)){
+                const semiperimeter = (firstSide+secondSide+thirdSide)/2;
+                const result = Math.sqrt(
+                    semiperimeter *
+                    (semiperimeter - firstSide) *
+                    (semiperimeter - secondSide) *
+                    (semiperimeter - thirdSide)
+                ).toFixed(4);
+                setText("Area of a triangle using heron's formula is "+ result+" units");
+
+            }else{
+                setText("Enter valid side lengths such that each side lengths")
+                
+            }
+        } else {
+            setError("Please Enter all the 3 side lengths")
         }
 
     }
     return(
         <>
+        
         <div className="area">
         <h1>Calculate Area of a triangle</h1>
         <Input label="Enter first side of a triangle" handleChange={(e)=>setSide1(e.target.value)}/>
@@ -39,7 +47,7 @@ export default function Area(){
         <Input label="Enter third side of a triangle" handleChange={(e)=>setSide3(e.target.value)}/>
         <Button text="Calculate" handleChange={calculateArea}/>
         {/* <button onClick={calculateArea}>Calculate</button> */}
-        <p className="p-text">{text}</p>
+        {error ? <p style={{color:"red"}}>{error}</p> :<p className="p-text">{text}</p>}
         </div>
         
         </>
