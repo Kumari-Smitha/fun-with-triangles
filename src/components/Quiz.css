@@ -1,0 +1,16 @@
+.quiz{
+    display: flex;
+    flex-direction: column;
+    height: 75vh;
+    overflow-y: scroll;
+    /* width: 60vw; */
+    margin: auto;
+    text-align: center;
+    font-family: var(--title-font);
+
+}
+.question{
+    margin-bottom: 2rem;
+    font-size: large;
+    /* border: 1px solid black; */
+}

@@ -1,0 +1,11 @@
+.hypotenuse{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+    width: 50vw;
+}
+h2{
+    font-family: var(--title-font);
+    margin-bottom: 0;
+}

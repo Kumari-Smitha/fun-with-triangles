@@ -1,0 +1,12 @@
+.is-triangle{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+    width: 40vw;
+}
+
+.p-text{
+    font-size: large;
+    font-family: var(--title-font);
+}

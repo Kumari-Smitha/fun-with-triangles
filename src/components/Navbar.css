@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One:ital@1&family=Montserrat&family=Rubik+Marker+Hatch&display=swap');
+
+:root{
+    --title-font: 'Megrim', cursive;
+}
+.navbar{
+    height: 16vh;
+    background-color: #7C3AED;
+    color: white;
+}
+h1{
+    margin-top: 0;
+    font-family: var(--title-font);
+    padding: 1rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+nav{
+    display: flex;
+    /* margin-right: auto; */
+    float: right;
+    margin-bottom: 1rem;
+    font-family: "Work Sans", sans-serif;;
+
+}
+span{
+    margin-right: 1.5rem;
+    /* font-size: large; */
+    
+}
