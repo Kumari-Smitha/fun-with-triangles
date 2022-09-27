@@ -13,7 +13,7 @@ export default function IsTriangle(){
     
     const checktriangle = ()=>{
       
-        if(angle1 !== 0 && angle2 !== 0 && angle3 !== 0){
+        if(angle1 !== '0' && angle2 !== '0' && angle3 !== '0'){
             setError(null)
             let sum = Number(angle1)+Number(angle2)+Number(angle3);
             if(sum === 180){
@@ -21,7 +21,10 @@ export default function IsTriangle(){
             }else {
                 setText("Oops! the angles does not form a Triangle.")
             }
-        } else {
+        } else if(angle1 === '0' || angle2 === '0' || angle3 === '0'){
+            setText("")
+            setError("Angles cannot be 0. Please enter valid angle.")
+        }else {
             setText("")
             setError("Please enter all the 3 angles!")
         }

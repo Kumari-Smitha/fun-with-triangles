@@ -10,12 +10,17 @@ export default function Hypotenuse(){
     const [error, setError] = useState(null)
    
     const calculateHypotenuse = ()=>{
-        if( base !== 0 && height !== 0){
+        setError(null)
+        if(  Number(base) > 0 && Number(height) > 0){
             setError(null)
             let formula = Math.sqrt((base**2)+(height**2))
             setText("The length of hypotenuse is "+ formula)
-        } else {
+        } else if(base === 0 || height === 0){
+            setError(null)
             setError("Please enter both values!")
+        }else {
+            setError(null)
+            setError("Please enter values greater than 0")
         }
     }
     return(
